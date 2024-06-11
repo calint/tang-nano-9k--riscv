@@ -288,7 +288,7 @@ module SoC #(
       .doutB(ir),  // instruction register
 
       // I/O
-      .leds(led),
+      .led(led),
       .uart_tx(uart_tx),
       .uart_rx(uart_rx)
   );

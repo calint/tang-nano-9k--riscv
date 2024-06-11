@@ -31,7 +31,7 @@ module RAMIO #(
     output wire [DATA_WIDTH-1:0] doutB,  // data from ram port B
 
     // I/O mapping of leds
-    output reg [5:0] leds,
+    output reg [5:0] led,
 
     // uart
     output wire uart_tx,
@@ -162,7 +162,7 @@ module RAMIO #(
 
   always @(posedge clk) begin
     if (rst) begin
-      leds <= 6'b11_1111;  // turn off all leds
+      led <= 6'b11_1111;  // turn off all leds
       uarttx_data <= 0;
       uarttx_go <= 0;
       uartrx_data_read <= 0;
@@ -190,7 +190,7 @@ module RAMIO #(
       end
       // if writing to leds
       if (addrA == ADDR_LEDS && weA == 2'b01) begin
-        leds <= dinA[5:0];
+        led <= dinA[5:0];
       end
       // note: with 'else' uses 5 less LUTs and 1 extra F7 Mux 
       // if writing to uart
