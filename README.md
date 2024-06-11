@@ -1,7 +1,5 @@
 # Tang Nano 9K: RISC-V
 
-> :bell: under construction
-
 * experiments with simple CPU design
 
 * implements the __rv32i__ instructions with the exception for: `fence`, `ecall`, `ebreak` and counters which are irrelevant for the intended use
