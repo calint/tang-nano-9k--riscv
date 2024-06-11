@@ -17,12 +17,12 @@ module Top (
 
   Gowin_rPLL clk_rpll (
       .clkin(sys_clk),  // 27 MHz
-      .clkout(soc_clk),  // 10.125 MHz
+      .clkout(soc_clk),  // 20.250 MHz
       .lock(lock)  //output lock
   );
 
   SoC #(
-      .CLK_FREQ(10_125_000),
+      .CLK_FREQ(20_250_000),
       .RAM_FILE(`RAM_FILE),
       .RAM_ADDR_WIDTH(`RAM_ADDR_WIDTH),
       .BAUD_RATE(`UART_BAUD_RATE)
