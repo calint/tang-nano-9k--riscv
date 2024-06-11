@@ -1,0 +1,11 @@
+Resource Utilization Summary
+Resource    Usage                           Utilization
+Logic       4503(4269 LUT, 234 ALU) / 8640  53%
+Register    1218 / 6693                     19%
+  --Register as Latch   0 / 6693            0%
+  --Register as FF  1218 / 6693             19%
+BSRAM   24 / 26                             93%
+
+Max Frequency Summary:
+Actual      Fmax
+20.250(MHz) 22.024(MHz)

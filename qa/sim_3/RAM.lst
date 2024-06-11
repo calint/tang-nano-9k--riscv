@@ -1,0 +1,25 @@
+
+RAM:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <_start>:
+   0:	00000013          	addi	x0,x0,0
+   4:	00020537          	lui	x10,0x20
+   8:	ffe50513          	addi	x10,x10,-2 # 1fffe <__global_pointer$+0x1e7ce>
+   c:	04800593          	addi	x11,x0,72
+  10:	00b50023          	sb	x11,0(x10)
+
+00000014 <lp1>:
+  14:	00054603          	lbu	x12,0(x10)
+  18:	fe061ee3          	bne	x12,x0,14 <lp1>
+  1c:	04500593          	addi	x11,x0,69
+  20:	00b50023          	sb	x11,0(x10)
+
+00000024 <lp2>:
+  24:	00054603          	lbu	x12,0(x10)
+  28:	fe061ee3          	bne	x12,x0,24 <lp2>
+
+0000002c <done>:
+  2c:	0000006f          	jal	x0,2c <done>
