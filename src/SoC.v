@@ -7,8 +7,9 @@ module SoC #(
     parameter BAUD_RATE = 9600,
     parameter RAM_ADDR_WIDTH = 13  // RAM depth: 2^13 in 4 bytes words 
 ) (
-    input wire clk,
     input wire rst,
+    input wire clk,
+    // I/O
     output wire [5:0] led,
     input wire uart_rx,
     output wire uart_tx,
@@ -253,6 +254,7 @@ module SoC #(
 
   Registers regs (
       .clk(clk),
+
       .rs1(rs1),  // register source 1
       .rs2(rs2),  // register source 2
       .rd(rd),  // destination register
@@ -272,18 +274,20 @@ module SoC #(
       .BAUD_RATE(BAUD_RATE)
   ) ram (
       .rst(rst),
-      // port A: data memory, read / write byte addressable ram
       .clk(clk),
+
+      // port A: data memory, read / write byte addressable ram
       .weA(ram_weA),  // write: b01 - byte, b10 - half word, b11 - word
       .reA(ram_reA),  // read: reA[2] sign extended, b01 - byte, b10 - half word, b11 - word
-      .addrA(ram_addrA[RAM_ADDR_WIDTH+1:0]),  // +1 because byte addressable
+      .addrA(ram_addrA[RAM_ADDR_WIDTH+1:0]),  // +1 because byte addressed to 4 byte word
       .dinA(ram_dinA),  // data to write to 'ram_addrA' depending on 'ram_weA'
       .doutA(ram_doutA),  // data out from 'ram_addrA' depending on 'ram_reA' one cycle later
 
       // port B: instruction memory, byte addressed, bottom 2 bits ignored, word aligned
-      .addrB(pc[RAM_ADDR_WIDTH+1:0]),  // program counter (+1 because byte addressable)
+      .addrB(pc[RAM_ADDR_WIDTH+1:0]),  // program counter (+1 because byte addressed to 4 byte word)
       .doutB(ir),  // instruction register
 
+      // I/O
       .leds(led),
       .uart_tx(uart_tx),
       .uart_rx(uart_rx)
