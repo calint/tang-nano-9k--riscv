@@ -279,12 +279,12 @@ module SoC #(
       // port A: data memory, read / write byte addressable ram
       .weA(ram_weA),  // write: b01 - byte, b10 - half word, b11 - word
       .reA(ram_reA),  // read: reA[2] sign extended, b01 - byte, b10 - half word, b11 - word
-      .addrA(ram_addrA[RAM_ADDR_WIDTH+1:0]),  // +1 because byte addressed to 4 byte word
+      .addrA(ram_addrA[RAM_ADDR_WIDTH+1:0]),  // +1 because byte addressed
       .dinA(ram_dinA),  // data to write to 'ram_addrA' depending on 'ram_weA'
       .doutA(ram_doutA),  // data out from 'ram_addrA' depending on 'ram_reA' one cycle later
 
       // port B: instruction memory, byte addressed, bottom 2 bits ignored, word aligned
-      .addrB(pc[RAM_ADDR_WIDTH+1:0]),  // program counter (+1 because byte addressed to 4 byte word)
+      .addrB(pc[RAM_ADDR_WIDTH+1:0]),  // program counter (+1 because byte addressed)
       .doutB(ir),  // instruction register
 
       // I/O
