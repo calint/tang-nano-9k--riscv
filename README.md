@@ -20,7 +20,7 @@
 * connect fpga board, click `Run`, program device
 * find out which tty is on the usb connected to the card (e.g. `/dev/ttyUSB1`)
 * connect with serial terminal at 9600 baud, 8 bits, 1 stop bit, no parity
-* button 2 is reset, click it to restart and display the prompt (does not reset ram)
+* button S1 is reset, click it to restart and display the prompt (does not reset ram)
 * "welcome to adventure #4" is the prompt
 
 ## configuration

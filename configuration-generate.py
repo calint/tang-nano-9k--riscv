@@ -11,17 +11,17 @@ with open('os/os_start.S', 'w') as file:
     file.write('# generated - do not edit\n')
     file.write('.global _start\n')
     file.write('_start:\n')
-    file.write('    li sp, {}\n'.format(top_address))
+    file.write('    li sp, {}\n'.format(hex(2**(cfg.RAM_ADDR_WIDTH+2) - 4)))
     file.write('    jal ra, run\n')
 
 with open('os/os_config.h', 'w') as file:
     file.write('// generated - do not edit\n')
     file.write(
-        'volatile unsigned char *leds = (unsigned char *){};\n'.format(hex(2**cfg.RAM_ADDR_WIDTH - 1)))
+        'volatile unsigned char *leds = (unsigned char *){};\n'.format(hex(2**(cfg.RAM_ADDR_WIDTH+2) - 1)))
     file.write(
-        'volatile unsigned char *uart_out = (unsigned char *){};\n'.format(hex(2**cfg.RAM_ADDR_WIDTH - 2)))
+        'volatile unsigned char *uart_out = (unsigned char *){};\n'.format(hex(2**(cfg.RAM_ADDR_WIDTH+2) - 2)))
     file.write(
-        'volatile unsigned char *uart_in = (unsigned char *){};\n'.format(hex(2**cfg.RAM_ADDR_WIDTH - 3)))
+        'volatile unsigned char *uart_in = (unsigned char *){};\n'.format(hex(2**(cfg.RAM_ADDR_WIDTH+2) - 3)))
 
 with open('src/Configuration.v', 'w') as file:
     file.write('// generated - do not edit\n')
