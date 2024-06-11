@@ -15,8 +15,5 @@
         <File path="src/UartTx.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
         <File path="riscv.cst" type="file.cst" enable="1"/>
-        <File path="os/os.c" type="file.other" enable="1"/>
-        <File path="os/os.lst" type="file.other" enable="1"/>
-        <File path="os/os.mem" type="file.other" enable="1"/>
     </FileList>
 </Project>
