@@ -40,3 +40,7 @@ endmodule
 `default_nettype wire
 
 -------------------------------------------------------------
+
+openFPGALoader -b tangnano9k --external-flash test.txt
+
+-------------------------------------------------------------
