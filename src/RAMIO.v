@@ -126,27 +126,27 @@ module RAMIO #(
         3'bx01: begin  // byte
           case (addrA_prev[1:0])
             2'b00: begin
-              doutA = reA[2] ? {{24{ram_doutA[7]}}, ram_doutA[7:0]} : {{24{1'b0}}, ram_doutA[7:0]};
+              doutA = reA_prev[2] ? {{24{ram_doutA[7]}}, ram_doutA[7:0]} : {{24{1'b0}}, ram_doutA[7:0]};
             end
             2'b01: begin
-              doutA = reA[2] ? {{24{ram_doutA[15]}}, ram_doutA[15:8]} : {{24{1'b0}}, ram_doutA[15:8]};
+              doutA = reA_prev[2] ? {{24{ram_doutA[15]}}, ram_doutA[15:8]} : {{24{1'b0}}, ram_doutA[15:8]};
             end
             2'b10: begin
-              doutA = reA[2] ? {{24{ram_doutA[23]}}, ram_doutA[23:16]} : {{24{1'b0}}, ram_doutA[23:16]};
+              doutA = reA_prev[2] ? {{24{ram_doutA[23]}}, ram_doutA[23:16]} : {{24{1'b0}}, ram_doutA[23:16]};
             end
             2'b11: begin
-              doutA = reA[2] ? {{24{ram_doutA[31]}}, ram_doutA[31:24]} : {{24{1'b0}}, ram_doutA[31:24]};
+              doutA = reA_prev[2] ? {{24{ram_doutA[31]}}, ram_doutA[31:24]} : {{24{1'b0}}, ram_doutA[31:24]};
             end
           endcase
         end
         3'bx10: begin  // half word
           case (addrA_prev[1:0])
             2'b00: begin
-              doutA = reA[2] ? {{16{ram_doutA[15]}}, ram_doutA[15:0]} : {{16{1'b0}}, ram_doutA[15:0]};
+              doutA = reA_prev[2] ? {{16{ram_doutA[15]}}, ram_doutA[15:0]} : {{16{1'b0}}, ram_doutA[15:0]};
             end
             2'b01: doutA = 0;  // ? error
             2'b10: begin
-              doutA = reA[2] ? {{16{ram_doutA[31]}}, ram_doutA[31:16]} : {{16{1'b0}}, ram_doutA[31:16]};
+              doutA = reA_prev[2] ? {{16{ram_doutA[31]}}, ram_doutA[31:16]} : {{16{1'b0}}, ram_doutA[31:16]};
             end
             2'b11: doutA = 0;  // ? error
           endcase
