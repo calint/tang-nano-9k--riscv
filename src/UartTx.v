@@ -10,25 +10,24 @@ module UartTx #(
     input wire [7:0] data,  // data to send
     input wire go,  // enable to start transmission, disable after 'data' has been read
     output reg tx,  // uart tx wire
-    output reg bsy  // enabled while sendng
+    output reg bsy  // enabled while sending
 );
 
   localparam BIT_TIME = CLK_FREQ / BAUD_RATE;
 
-  localparam STATE_IDLE = 0;
-  localparam STATE_START_BIT = 1;
-  localparam STATE_DATA_BITS = 2;
-  localparam STATE_STOP_BIT = 3;
-  localparam STATE_WAIT_GO_LOW = 4;
+  localparam STATE_IDLE = 5'b00001;
+  localparam STATE_START_BIT = 5'b00010;
+  localparam STATE_DATA_BITS = 5'b00100;
+  localparam STATE_STOP_BIT = 5'b01000;
+  localparam STATE_WAIT_GO_LOW = 5'b10000;
 
-  reg [$clog2(5)-1:0] state;
-  reg [$clog2(9)-1:0] bit_count;
-  reg [(BIT_TIME == 1 ? 1 : $clog2(BIT_TIME))-1:0] bit_time_counter;
+  reg [ 4:0] state;
+  reg [ 3:0] bit_count;
+  reg [31:0] bit_time_counter;
 
 `ifdef DBG
   initial begin
-    $display("Freq: %0d, BAUD: %0d, bit_count: %0d, bit_time_counter: %0d, bit time: %0d",
-             CLK_FREQ, BAUD_RATE, $clog2(9), BIT_TIME == 1 ? 1 : $clog2(BIT_TIME), BIT_TIME);
+    $display("Freq: %0d, BAUD: %0d, bit time: %0d", CLK_FREQ, BAUD_RATE, BIT_TIME);
   end
 `endif
 

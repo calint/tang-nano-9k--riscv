@@ -12,7 +12,7 @@ module Top (
     input wire btn1
 );
 
-  //   assign uart_tx = uart_rx;
+  // assign uart_tx = uart_rx;
 
   wire soc_clk;
   wire lock;
