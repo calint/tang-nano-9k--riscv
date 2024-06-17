@@ -142,11 +142,11 @@ module RAMIO #(
         3'bx10: begin  // half word
           case (addrA_prev[1:0])
             2'b00: begin
-              doutA = reA[2] ? {{16{ram_doutA[15]}}, ram_doutA[15:0]} : {{24{1'b0}}, ram_doutA[15:0]};
+              doutA = reA[2] ? {{16{ram_doutA[15]}}, ram_doutA[15:0]} : {{16{1'b0}}, ram_doutA[15:0]};
             end
             2'b01: doutA = 0;  // ? error
             2'b10: begin
-              doutA = reA[2] ? {{16{ram_doutA[31]}}, ram_doutA[31:16]} : {{24{1'b0}}, ram_doutA[31:16]};
+              doutA = reA[2] ? {{16{ram_doutA[31]}}, ram_doutA[31:16]} : {{16{1'b0}}, ram_doutA[31:16]};
             end
             2'b11: doutA = 0;  // ? error
           endcase
