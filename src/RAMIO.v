@@ -162,13 +162,16 @@ module RAMIO #(
 
   always @(posedge clk) begin
     if (rst) begin
-      led <= 6'b11_1111;  // turn off all leds
+      led <= 4'b1111;  // turn off all leds
       uarttx_data <= 0;
       uarttx_go <= 0;
       uartrx_data_read <= 0;
       uartrx_go <= 1;
     end else begin
-      reA_prev   <= reA;
+      led[5] <= uart_tx;
+      led[4] <= uart_rx;
+
+      reA_prev <= reA;
       addrA_prev <= addrA;
       // if previous command was a read from uart then reset the read data
       if (addrA_prev == ADDR_UART_IN && reA_prev == 3'b001) begin
@@ -190,7 +193,7 @@ module RAMIO #(
       end
       // if writing to leds
       if (addrA == ADDR_LEDS && weA == 2'b01) begin
-        led <= dinA[5:0];
+        led <= dinA[3:0];
       end
       // note: with 'else' uses 5 less LUTs and 1 extra F7 Mux 
       // if writing to uart
@@ -223,7 +226,7 @@ module RAMIO #(
       .data(uarttx_data),  // data to send
       .go(uarttx_go),  // enable to start transmission, disable after 'data' has been read
       .tx(uart_tx),  // uart tx wire
-      .bsy(uarttx_bsy)  // enabled while sendng
+      .bsy(uarttx_bsy)  // enabled while sending
   );
 
   UartRx #(

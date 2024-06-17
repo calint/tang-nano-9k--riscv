@@ -19,6 +19,7 @@
 #   https://github.com/johnwinans/rvalp/releases/download/v0.14/rvalp.pdf
 #
 set -e
+cd $(dirname "$0")
 
 PATH=$PATH:~/riscv/install/rv32i/bin
 BIN=os
