@@ -22,39 +22,7 @@ typedef unsigned char object_id;
 typedef unsigned char entity_id;
 typedef unsigned char direction;
 
-// static char *hello = "welcome to adventure #4\r\n    type 'help'\r\n\r\n";
-static char *hello =
-    "\r\nACT 1\r\n"
-    "=====\r\n"
-    "\r\n"
-    "Scene 1\r\n"
-    "=======\r\n"
-    "[Enter Leonato, Governor of Messina, Hero his daughter,\r\n"
-    "and Beatrice his niece, with a Messenger.]\r\n"
-    "\r\n"
-    "LEONATO, [with a letter]  I learn in this letter that Don\r\n"
-    "Pedro of Aragon comes this night to Messina.\r\n"
-    "\r\n"
-    "MESSENGER  He is very near by this. He was not three\r\n"
-    "leagues off when I left him.\r\n"
-    "\r\n"
-    "LEONATO  How many gentlemen have you lost in this\r\n"
-    "action?\r\n"
-    "\r\n"
-    "MESSENGER  But few of any sort, and none of name.\r\n"
-    "\r\n"
-    "LEONATO  A victory is twice itself when the achiever\r\n"
-    "brings home full numbers. I find here that Don\r\n"
-    "Pedro hath bestowed much honor on a young\r\n"
-    "Florentine called Claudio.\r\n"
-    "\r\n"
-    "MESSENGER  Much deserved on his part, and equally\r\n"
-    "remembered by Don Pedro. He hath borne himself\r\n"
-    "beyond the promise of his age, doing in the figure\r\n"
-    "of a lamb the feats of a lion. He hath indeed better\r\n"
-    "bettered expectation than you must expect of me to\r\n"
-    "tell you how.\r\n\r\n"
-    "welcome to adventure #4\r\n    type 'help'\r\n\r\n";
+static char *hello = "welcome to adventure #4\r\n    type 'help'\r\n\r\n";
 
 typedef struct input_buffer {
   char line[80];
