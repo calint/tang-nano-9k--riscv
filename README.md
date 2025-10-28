@@ -15,7 +15,7 @@
 * 20 MHz with instructions executing in one cycle except branches which use two cycles due to creating "bubble" in the pipeline
 * UART to send and receive text (see [`etc/samples/os.c`](https://github.com/calint/tang-nano-9k--riscv/blob/master/etc/samples/os.c) for example)
 
-## how-to with Gowin EDA 1.9.9.03
+## how-to with Gowin EDA 1.9.12
 
 * connect fpga board, click `Run`, program device
 * find out which tty is on the usb connected to the card (e.g. `/dev/ttyUSB1`)
